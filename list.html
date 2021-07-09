@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drop down</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">    
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+</head>
+
+<body>
+    <br><br>
+    <header><b>To-do list</b></header>
+    <br><br><br>
+    <form >
+        <div class="input-form">
+            <input type="text" id="task" class="input-control" placeholder="Name Your Task..">
+        </div>
+    </form>
+    <br><br>
+    <label><b>priority:</b></label> 
+              <br>
+                 <select id="priority" >
+                    <option  value="high">High</option>
+                    <option value="medium">Medium</option>
+                    <option value="low">Low</option>
+                 </select>
+
+    <br><br>
+    <button id="btn" ">Save</button>
+    <br><br><br><br><br>
+    <table id="display">
+        <thead>
+        <tr id="row-color">
+            <th id="aaa">Task name</th>
+            <th id="aaa">priority</th>
+            <th id="bbb"></th>
+        </tr>
+    </thead>
+    <tbody>
+        
+    </tbody>
+    </table>
+    <br><br><br><br><br>
+    <div class="btns"> filter:
+        <button id="high-btn">High</button>
+        <button id="medium-btn">Medium</button>
+        <button id="low-btn">Low</button>
+    </div>
+    <script>
+        var selectedRow =null
+
+        var button = document.getElementById("btn");
+        button.addEventListener("click", displayDetails);
+        var row = 1;
+        var bgcolor;
+        var contents = [];
+
+        function displayDetails() {
+            var task = document.getElementById("task").value;
+            var priority = document.getElementById("priority");
+
+            if(priority.value == "high")
+            {
+                bgcolor = "#00FF00";
+            }
+            else if(priority.value == "medium")
+            {
+                bgcolor = "#ffff00";
+            }
+
+            else if(priority.value="low")
+            {
+                bgcolor = "#ff0000";
+            }
+
+            else 
+            {
+                bgcolor="#FFFFFF"
+            }
+
+            var display = document.getElementById("display");
+            var newRow = display.insertRow(row);
+            newRow.style.backgroundColor = bgcolor;
+
+            var cell1 = newRow.insertCell(0);
+            var cell2 = newRow.insertCell(1);
+            var cell3 = newRow.insertCell(2);
+
+            cell1.innerHTML = task;
+            cell2.innerHTML = priority.options[priority.selectedIndex].value;
+            row++;
+            cell3.innerHTML = `<a type="link" onClick="onEdit(this)">Edit</a> <br>
+                       <a  onClick="onDelete(this)">Delete</a>`;
+
+            return displayDetails;
+
+
+            var contents = [];
+                $("table#display tr").each(function() {
+                    var rowDataArray = [];
+                    var actualData = $(this).find('td');
+                    if (actualData.length > 0) {
+                        actualData.each(function() {
+                            rowDataArray.push($(this).text());
+                        });
+                        contents.push(rowDataArray);
+                    }
+                });
+                console.log(contents);
+                        }
+
+
+        function onEdit(td) {
+    selectedRow = td.parentElement.parentElement;
+    document.getElementById("task").value = selectedRow.cells[0].innerHTML;
+    document.getElementById("priority").value = selectedRow.cells[1].innerHTML;
+}
+
+        function onDelete(td) {
+    if (confirm('Are you sure to delete this record ?')) {
+        row = td.parentElement.parentElement;
+        document.getElementById("display").deleteRow(row.rowIndex);
+        resetForm();
+    }
+}
+
+
+    </script>
+</body>
+
+</html>

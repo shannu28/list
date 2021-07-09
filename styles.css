@@ -1,0 +1,125 @@
+
+header {
+    font-style: italic;
+    font-size: 60px;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color:#FBBBB9;
+}
+
+#priority {
+    outline: none;
+    border: none;
+    background-color:white;
+    border-radius: 5px;
+    width: 200px;
+    height: 30px;
+    padding: 0px 10px;
+    font-size: 16px;
+}
+
+#color {
+    outline: none;
+    border: none;
+    background-color:white;
+    border-radius: 5px;
+    width: 100px;
+    height: 30px;
+    padding: 0px 10px;
+    font-size: 16px;
+}
+
+
+option {
+    background-color:blanchedalmond;
+}
+
+.input-control {
+    width: 310px;
+    border-radius: 5px;
+    background-color: rgb(217, 231, 216);
+    border: none;
+    outline: none;
+    height: 40px;
+    padding: 0px 10px;
+    color: rgb(10, 10, 10);
+    font-size: 14px;
+}
+
+.green {
+    background-color: green;
+}
+
+.yellow {
+    background-color:yellow;
+}
+
+.red {
+    background-color: red;
+}
+
+.btn {
+    font-size: 16px;
+    width: 80px;
+    height: 35px;
+    outline: none;
+    border: none;
+    border-radius: 10px;
+    background-color: rgb(71, 80, 209);
+    color: rgb(194, 159, 159);
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.btn:hover {
+    background-color: rgb(85, 145, 145);
+    color: black;
+}
+
+table {
+    border-collapse: collapse;
+    width: 50%;
+    margin: 50px auto;
+    background-color:white;
+}
+
+table,
+th,
+td {
+    border: 2px solid black;
+    padding: 5px;
+}
+
+#aaa {
+    font-size: 20px;
+    font-weight: bold;
+    color: black;
+    opacity: 2;
+}
+
+
+td {
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.btns {
+    direction: row;
+}
+
+#high-btn {
+    margin-left: 40px;
+}
+
+#low-btn {
+    margin-right: 100px;
+}
+
+#medium-btn {
+    margin-right: 10px
+}
